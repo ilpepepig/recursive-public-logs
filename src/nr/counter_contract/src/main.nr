@@ -9,12 +9,14 @@ pub contract Counter {
         protocol_types::address::AztecAddress,
     };
 
+    // simple_log
     #[external("private")]
     fn simple_log() {
         let value = 1;
         Counter::at(context.this_address()).emit_public_log_internal(value).enqueue(&mut context);
     }
 
+    // recursive_log
     #[external("private")]
     fn recursive_log(recursions: Field) {
         if recursions != 0 {
