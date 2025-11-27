@@ -10,6 +10,7 @@ import {
   Benchmark,
   type BenchmarkContext,
 } from "@defi-wonderland/aztec-benchmark";
+import type { NamedBenchmarkedInteraction } from "@defi-wonderland/aztec-benchmark/dist/types.js";
 
 import { CounterContract } from "../src/artifacts/Counter.js";
 
@@ -38,7 +39,7 @@ export default class CounterContractBenchmark extends Benchmark {
 
     const [deployer] = accounts;
 
-    const counterContract = await CounterContract.deploy(wallet, deployer)
+    const counterContract = await CounterContract.deploy(wallet)
       .send({ from: deployer })
       .deployed();
 
@@ -50,13 +51,48 @@ export default class CounterContractBenchmark extends Benchmark {
    */
   getMethods(
     context: CounterBenchmarkContext,
-  ): ContractFunctionInteractionCallIntent[] {
+  ): Array<
+    NamedBenchmarkedInteraction | ContractFunctionInteractionCallIntent
+  > {
     const { counterContract, wallet, deployer } = context;
 
-    const methods: ContractFunctionInteractionCallIntent[] = [
+    const methods: Array<
+      NamedBenchmarkedInteraction | ContractFunctionInteractionCallIntent
+    > = [
       {
-        caller: deployer,
-        action: counterContract.withWallet(wallet).methods.increment(),
+        interaction: {
+          caller: deployer,
+          action: counterContract.withWallet(wallet).methods.simple_log(),
+        },
+        name: "simple_log()",
+      },
+      {
+        interaction: {
+          caller: deployer,
+          action: counterContract.withWallet(wallet).methods.recursive_log(1),
+        },
+        name: "recursive_log(1)",
+      },
+      {
+        interaction: {
+          caller: deployer,
+          action: counterContract.withWallet(wallet).methods.recursive_log(2),
+        },
+        name: "recursive_log(2)",
+      },
+      {
+        interaction: {
+          caller: deployer,
+          action: counterContract.withWallet(wallet).methods.recursive_log(3),
+        },
+        name: "recursive_log(3)",
+      },
+      {
+        interaction: {
+          caller: deployer,
+          action: counterContract.withWallet(wallet).methods.recursive_log(10),
+        },
+        name: "recursive_log(10)",
       },
     ];
 

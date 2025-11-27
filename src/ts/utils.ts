@@ -14,14 +14,12 @@ import { Contract } from "@aztec/aztec.js/contracts";
  */
 export async function deployCounter(
   deployer: Wallet,
-  owner: AztecAddress,
 ): Promise<CounterContract> {
   const deployerAddress = (await deployer.getAccounts())[0]!.item;
   const deployMethod = await Contract.deploy(
     deployer,
     CounterContractArtifact,
-    [owner],
-    "constructor", // not actually needed since it's the default constructor
+    [],
   );
   const tx = await deployMethod.send({
     from: deployerAddress,

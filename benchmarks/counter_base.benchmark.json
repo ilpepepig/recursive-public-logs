@@ -1,0 +1,366 @@
+{
+  "summary": {
+    "simple_log()": 437058,
+    "recursive_log(1)": 542404,
+    "recursive_log(2)": 647488,
+    "recursive_log(3)": 752572,
+    "recursive_log(10)": 1488160
+  },
+  "results": [
+    {
+      "name": "simple_log()",
+      "totalGateCount": 437058,
+      "gateCounts": [
+        {
+          "circuitName": "SchnorrAccount:entrypoint",
+          "gateCount": 23744
+        },
+        {
+          "circuitName": "private_kernel_init",
+          "gateCount": 46760
+        },
+        {
+          "circuitName": "Counter:simple_log",
+          "gateCount": 5495
+        },
+        {
+          "circuitName": "private_kernel_inner",
+          "gateCount": 99327
+        },
+        {
+          "circuitName": "private_kernel_reset",
+          "gateCount": 116730
+        },
+        {
+          "circuitName": "private_kernel_tail",
+          "gateCount": 104113
+        },
+        {
+          "circuitName": "hiding_kernel",
+          "gateCount": 40889
+        }
+      ],
+      "gas": {
+        "gasLimits": {
+          "daGas": 2816,
+          "l2Gas": 26320
+        },
+        "teardownGasLimits": {
+          "daGas": 0,
+          "l2Gas": 0
+        }
+      }
+    },
+    {
+      "name": "recursive_log(1)",
+      "totalGateCount": 542404,
+      "gateCounts": [
+        {
+          "circuitName": "SchnorrAccount:entrypoint",
+          "gateCount": 23744
+        },
+        {
+          "circuitName": "private_kernel_init",
+          "gateCount": 46760
+        },
+        {
+          "circuitName": "Counter:recursive_log",
+          "gateCount": 5757
+        },
+        {
+          "circuitName": "private_kernel_inner",
+          "gateCount": 99327
+        },
+        {
+          "circuitName": "Counter:recursive_log",
+          "gateCount": 5757
+        },
+        {
+          "circuitName": "private_kernel_inner",
+          "gateCount": 99327
+        },
+        {
+          "circuitName": "private_kernel_reset",
+          "gateCount": 116730
+        },
+        {
+          "circuitName": "private_kernel_tail",
+          "gateCount": 104113
+        },
+        {
+          "circuitName": "hiding_kernel",
+          "gateCount": 40889
+        }
+      ],
+      "gas": {
+        "gasLimits": {
+          "daGas": 2816,
+          "l2Gas": 26320
+        },
+        "teardownGasLimits": {
+          "daGas": 0,
+          "l2Gas": 0
+        }
+      }
+    },
+    {
+      "name": "recursive_log(2)",
+      "totalGateCount": 647488,
+      "gateCounts": [
+        {
+          "circuitName": "SchnorrAccount:entrypoint",
+          "gateCount": 23744
+        },
+        {
+          "circuitName": "private_kernel_init",
+          "gateCount": 46760
+        },
+        {
+          "circuitName": "Counter:recursive_log",
+          "gateCount": 5757
+        },
+        {
+          "circuitName": "private_kernel_inner",
+          "gateCount": 99327
+        },
+        {
+          "circuitName": "Counter:recursive_log",
+          "gateCount": 5757
+        },
+        {
+          "circuitName": "private_kernel_inner",
+          "gateCount": 99327
+        },
+        {
+          "circuitName": "Counter:recursive_log",
+          "gateCount": 5757
+        },
+        {
+          "circuitName": "private_kernel_inner",
+          "gateCount": 99327
+        },
+        {
+          "circuitName": "private_kernel_reset",
+          "gateCount": 116730
+        },
+        {
+          "circuitName": "private_kernel_tail",
+          "gateCount": 104113
+        },
+        {
+          "circuitName": "hiding_kernel",
+          "gateCount": 40889
+        }
+      ],
+      "gas": {
+        "gasLimits": {
+          "daGas": 4506,
+          "l2Gas": 50383
+        },
+        "teardownGasLimits": {
+          "daGas": 0,
+          "l2Gas": 0
+        }
+      }
+    },
+    {
+      "name": "recursive_log(3)",
+      "totalGateCount": 752572,
+      "gateCounts": [
+        {
+          "circuitName": "SchnorrAccount:entrypoint",
+          "gateCount": 23744
+        },
+        {
+          "circuitName": "private_kernel_init",
+          "gateCount": 46760
+        },
+        {
+          "circuitName": "Counter:recursive_log",
+          "gateCount": 5757
+        },
+        {
+          "circuitName": "private_kernel_inner",
+          "gateCount": 99327
+        },
+        {
+          "circuitName": "Counter:recursive_log",
+          "gateCount": 5757
+        },
+        {
+          "circuitName": "private_kernel_inner",
+          "gateCount": 99327
+        },
+        {
+          "circuitName": "Counter:recursive_log",
+          "gateCount": 5757
+        },
+        {
+          "circuitName": "private_kernel_inner",
+          "gateCount": 99327
+        },
+        {
+          "circuitName": "Counter:recursive_log",
+          "gateCount": 5757
+        },
+        {
+          "circuitName": "private_kernel_inner",
+          "gateCount": 99327
+        },
+        {
+          "circuitName": "private_kernel_reset",
+          "gateCount": 116730
+        },
+        {
+          "circuitName": "private_kernel_tail",
+          "gateCount": 104113
+        },
+        {
+          "circuitName": "hiding_kernel",
+          "gateCount": 40889
+        }
+      ],
+      "gas": {
+        "gasLimits": {
+          "daGas": 6196,
+          "l2Gas": 74445
+        },
+        "teardownGasLimits": {
+          "daGas": 0,
+          "l2Gas": 0
+        }
+      }
+    },
+    {
+      "name": "recursive_log(10)",
+      "totalGateCount": 1488160,
+      "gateCounts": [
+        {
+          "circuitName": "SchnorrAccount:entrypoint",
+          "gateCount": 23744
+        },
+        {
+          "circuitName": "private_kernel_init",
+          "gateCount": 46760
+        },
+        {
+          "circuitName": "Counter:recursive_log",
+          "gateCount": 5757
+        },
+        {
+          "circuitName": "private_kernel_inner",
+          "gateCount": 99327
+        },
+        {
+          "circuitName": "Counter:recursive_log",
+          "gateCount": 5757
+        },
+        {
+          "circuitName": "private_kernel_inner",
+          "gateCount": 99327
+        },
+        {
+          "circuitName": "Counter:recursive_log",
+          "gateCount": 5757
+        },
+        {
+          "circuitName": "private_kernel_inner",
+          "gateCount": 99327
+        },
+        {
+          "circuitName": "Counter:recursive_log",
+          "gateCount": 5757
+        },
+        {
+          "circuitName": "private_kernel_inner",
+          "gateCount": 99327
+        },
+        {
+          "circuitName": "Counter:recursive_log",
+          "gateCount": 5757
+        },
+        {
+          "circuitName": "private_kernel_inner",
+          "gateCount": 99327
+        },
+        {
+          "circuitName": "Counter:recursive_log",
+          "gateCount": 5757
+        },
+        {
+          "circuitName": "private_kernel_inner",
+          "gateCount": 99327
+        },
+        {
+          "circuitName": "Counter:recursive_log",
+          "gateCount": 5757
+        },
+        {
+          "circuitName": "private_kernel_inner",
+          "gateCount": 99327
+        },
+        {
+          "circuitName": "Counter:recursive_log",
+          "gateCount": 5757
+        },
+        {
+          "circuitName": "private_kernel_inner",
+          "gateCount": 99327
+        },
+        {
+          "circuitName": "Counter:recursive_log",
+          "gateCount": 5757
+        },
+        {
+          "circuitName": "private_kernel_inner",
+          "gateCount": 99327
+        },
+        {
+          "circuitName": "Counter:recursive_log",
+          "gateCount": 5757
+        },
+        {
+          "circuitName": "private_kernel_inner",
+          "gateCount": 99327
+        },
+        {
+          "circuitName": "Counter:recursive_log",
+          "gateCount": 5757
+        },
+        {
+          "circuitName": "private_kernel_inner",
+          "gateCount": 99327
+        },
+        {
+          "circuitName": "private_kernel_reset",
+          "gateCount": 116730
+        },
+        {
+          "circuitName": "private_kernel_tail",
+          "gateCount": 104113
+        },
+        {
+          "circuitName": "hiding_kernel",
+          "gateCount": 40889
+        }
+      ],
+      "gas": {
+        "gasLimits": {
+          "daGas": 18023,
+          "l2Gas": 242883
+        },
+        "teardownGasLimits": {
+          "daGas": 0,
+          "l2Gas": 0
+        }
+      }
+    }
+  ],
+  "gasSummary": {
+    "simple_log()": 29136,
+    "recursive_log(1)": 29136,
+    "recursive_log(2)": 54889,
+    "recursive_log(3)": 80641,
+    "recursive_log(10)": 260906
+  }
+}

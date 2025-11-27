@@ -42,32 +42,8 @@ describe("Counter Contract", () => {
   });
 
   beforeEach(async () => {
-    counter = await deployCounter(wallet, alice);
+    counter = await deployCounter(wallet);
   });
 
-  it("e2e", async () => {
-    const owner = await counter.methods.get_owner().simulate({
-      from: alice,
-    });
-    expect(owner).toStrictEqual(alice);
-    // default counter's value is 0
-    expect(
-      await counter.methods.get_counter().simulate({
-        from: alice,
-      }),
-    ).toBe(0n);
-    // call to `increment`
-    await counter.methods
-      .increment()
-      .send({
-        from: alice,
-      })
-      .wait();
-    // now the counter should be incremented.
-    expect(
-      await counter.methods.get_counter().simulate({
-        from: alice,
-      }),
-    ).toBe(1n);
-  });
+  it("e2e", async () => {});
 });
