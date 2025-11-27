@@ -69,6 +69,27 @@ export default class CounterContractBenchmark extends Benchmark {
       {
         interaction: {
           caller: deployer,
+          action: counterContract.withWallet(wallet).methods.two_field_log(),
+        },
+        name: "two_field_log()",
+      },
+      {
+        interaction: {
+          caller: deployer,
+          action: counterContract.withWallet(wallet).methods.three_field_log(),
+        },
+        name: "three_field_log()",
+      },
+      {
+        interaction: {
+          caller: deployer,
+          action: counterContract.withWallet(wallet).methods.ten_field_log(),
+        },
+        name: "ten_field_log()",
+      },
+      {
+        interaction: {
+          caller: deployer,
           action: counterContract.withWallet(wallet).methods.recursive_log(1),
         },
         name: "recursive_log(1)",
