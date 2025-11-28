@@ -115,6 +115,24 @@ export default class CounterContractBenchmark extends Benchmark {
         },
         name: "recursive_log(10)",
       },
+      {
+        interaction: {
+          caller: deployer,
+          action: counterContract
+            .withWallet(wallet)
+            .methods.large_array_1024_log(),
+        },
+        name: "large_array_1024_log()",
+      },
+      {
+        interaction: {
+          caller: deployer,
+          action: counterContract
+            .withWallet(wallet)
+            .methods.large_array_2048_log(),
+        },
+        name: "large_array_2048_log()",
+      },
     ];
 
     return methods;

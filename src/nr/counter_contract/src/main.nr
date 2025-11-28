@@ -7,6 +7,7 @@ pub contract Counter {
     use aztec::{
         macros::{functions::{external, initializer, internal, view}, storage::storage},
         protocol_types::address::AztecAddress,
+        oracle::random::random,
     };
 
     // simple_log
@@ -51,6 +52,30 @@ pub contract Counter {
                 value + 8,
                 value + 9,
             )
+            .enqueue(&mut context);
+    }
+
+    // large_array_log
+    #[external("private")]
+    fn large_array_1024_log() {
+        let mut values: [Field; 1024] = [0; 1024];
+        for i in 0..1024 {
+            values[i] = unsafe { random() };
+        }
+        Counter::at(context.this_address())
+            .emit_large_array_1024_public_log_internal(values)
+            .enqueue(&mut context);
+    }
+
+    // large_array_log
+    #[external("private")]
+    fn large_array_2048_log() {
+        let mut values: [Field; 2048] = [0; 2048];
+        for i in 0..2048 {
+            values[i] = unsafe { random() };
+        }
+        Counter::at(context.this_address())
+            .emit_large_array_2048_public_log_internal(values)
             .enqueue(&mut context);
     }
 
@@ -101,5 +126,17 @@ pub contract Counter {
             value_1, value_2, value_3, value_4, value_5, value_6, value_7, value_8, value_9,
             value_10,
         ]);
+    }
+
+    #[external("public")]
+    #[internal]
+    fn emit_large_array_1024_public_log_internal(values: [Field; 1024]) {
+        context.emit_public_log(values);
+    }
+
+    #[external("public")]
+    #[internal]
+    fn emit_large_array_2048_public_log_internal(values: [Field; 2048]) {
+        context.emit_public_log(values);
     }
 }
