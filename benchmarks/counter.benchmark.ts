@@ -69,6 +69,27 @@ export default class CounterContractBenchmark extends Benchmark {
       {
         interaction: {
           caller: deployer,
+          action: counterContract.withWallet(wallet).methods.two_field_log(),
+        },
+        name: "two_field_log()",
+      },
+      {
+        interaction: {
+          caller: deployer,
+          action: counterContract.withWallet(wallet).methods.three_field_log(),
+        },
+        name: "three_field_log()",
+      },
+      {
+        interaction: {
+          caller: deployer,
+          action: counterContract.withWallet(wallet).methods.ten_field_log(),
+        },
+        name: "ten_field_log()",
+      },
+      {
+        interaction: {
+          caller: deployer,
           action: counterContract.withWallet(wallet).methods.recursive_log(1),
         },
         name: "recursive_log(1)",
@@ -93,6 +114,24 @@ export default class CounterContractBenchmark extends Benchmark {
           action: counterContract.withWallet(wallet).methods.recursive_log(10),
         },
         name: "recursive_log(10)",
+      },
+      {
+        interaction: {
+          caller: deployer,
+          action: counterContract
+            .withWallet(wallet)
+            .methods.large_array_1024_log(),
+        },
+        name: "large_array_1024_log()",
+      },
+      {
+        interaction: {
+          caller: deployer,
+          action: counterContract
+            .withWallet(wallet)
+            .methods.large_array_2048_log(),
+        },
+        name: "large_array_2048_log()",
       },
     ];
 

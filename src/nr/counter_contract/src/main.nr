@@ -7,14 +7,79 @@ pub contract Counter {
     use aztec::{
         macros::{functions::{external, initializer, internal, view}, storage::storage},
         protocol_types::address::AztecAddress,
+        oracle::random::random,
     };
 
+    // simple_log
     #[external("private")]
     fn simple_log() {
         let value = 1;
         Counter::at(context.this_address()).emit_public_log_internal(value).enqueue(&mut context);
     }
 
+    // two_field_log
+    #[external("private")]
+    fn two_field_log() {
+        let value = 1;
+        Counter::at(context.this_address())
+            .emit_two_field_public_log_internal(value, value + 1)
+            .enqueue(&mut context);
+    }
+
+    // three_field_log
+    #[external("private")]
+    fn three_field_log() {
+        let value = 1;
+        Counter::at(context.this_address())
+            .emit_three_field_public_log_internal(value, value + 1, value + 2)
+            .enqueue(&mut context);
+    }
+
+    // ten_field_log
+    #[external("private")]
+    fn ten_field_log() {
+        let value = 1;
+        Counter::at(context.this_address())
+            .emit_ten_field_public_log_internal(
+                value,
+                value + 1,
+                value + 2,
+                value + 3,
+                value + 4,
+                value + 5,
+                value + 6,
+                value + 7,
+                value + 8,
+                value + 9,
+            )
+            .enqueue(&mut context);
+    }
+
+    // large_array_log
+    #[external("private")]
+    fn large_array_1024_log() {
+        let mut values: [Field; 1024] = [0; 1024];
+        for i in 0..1024 {
+            values[i] = unsafe { random() };
+        }
+        Counter::at(context.this_address())
+            .emit_large_array_1024_public_log_internal(values)
+            .enqueue(&mut context);
+    }
+
+    // large_array_log
+    #[external("private")]
+    fn large_array_2048_log() {
+        let mut values: [Field; 2048] = [0; 2048];
+        for i in 0..2048 {
+            values[i] = unsafe { random() };
+        }
+        Counter::at(context.this_address())
+            .emit_large_array_2048_public_log_internal(values)
+            .enqueue(&mut context);
+    }
+
+    // recursive_log
     #[external("private")]
     fn recursive_log(recursions: Field) {
         if recursions != 0 {
@@ -29,5 +94,49 @@ pub contract Counter {
     #[internal]
     fn emit_public_log_internal(value: Field) {
         context.emit_public_log(value);
+    }
+
+    #[external("public")]
+    #[internal]
+    fn emit_two_field_public_log_internal(value_1: Field, value_2: Field) {
+        context.emit_public_log([value_1, value_2]);
+    }
+
+    #[external("public")]
+    #[internal]
+    fn emit_three_field_public_log_internal(value_1: Field, value_2: Field, value_3: Field) {
+        context.emit_public_log([value_1, value_2, value_3]);
+    }
+
+    #[external("public")]
+    #[internal]
+    fn emit_ten_field_public_log_internal(
+        value_1: Field,
+        value_2: Field,
+        value_3: Field,
+        value_4: Field,
+        value_5: Field,
+        value_6: Field,
+        value_7: Field,
+        value_8: Field,
+        value_9: Field,
+        value_10: Field,
+    ) {
+        context.emit_public_log([
+            value_1, value_2, value_3, value_4, value_5, value_6, value_7, value_8, value_9,
+            value_10,
+        ]);
+    }
+
+    #[external("public")]
+    #[internal]
+    fn emit_large_array_1024_public_log_internal(values: [Field; 1024]) {
+        context.emit_public_log(values);
+    }
+
+    #[external("public")]
+    #[internal]
+    fn emit_large_array_2048_public_log_internal(values: [Field; 2048]) {
+        context.emit_public_log(values);
     }
 }
